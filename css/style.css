@@ -1,0 +1,93 @@
+:root {
+  --accent: #0d6efd; /* primary blue */
+  --sidebar-bg: #0f1724; /* dark sidebar default */
+  --text-color: #212529; /* main text color for light mode */
+  --text-muted: #6c757d; /* muted text color */
+  --body-bg: #ffffff; /* page background for light mode */
+}
+
+/* Dark mode overrides */
+body.dark-mode {
+  --sidebar-bg: #0f1724; /* dark sidebar */
+  --text-color: #ffffff; /* main text white for dark mode */
+  --text-muted: #cfe8ff; /* lighter muted text for dark mode */
+  --body-bg: #121212; /* dark page background */
+}
+
+/* Apply variables */
+body {
+  background-color: var(--body-bg);
+  color: var(--text-color);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+}
+
+.sidebar {
+  background-color: var(--sidebar-bg);
+  color: var(--text-color);
+  min-height: 100vh;
+  padding: 2rem 1.25rem;
+  color: #ffffff;
+}
+
+.sidebar a {
+  color: var(--text-light);
+  text-decoration: none;
+}
+
+.sidebar .name {
+  font-weight: 700;
+  font-size: 1.35rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem; /* Add space below the name */
+}
+
+.resume-btn {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0.4rem;
+}
+
+.main {
+  padding: 2rem;
+  background-color: var(--body-bg);
+  color: var(--text-color);
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 0.35rem;
+  color: var(--text-color);
+}
+
+.card-project {
+  border: 1px solid #e9ecef;
+  border-radius: 0.6rem;
+}
+
+/* Make sidebar sticky on larger screens */
+.sidebar-sticky {
+  position: sticky;
+  top: 1.5rem;
+}
+
+/* Small tweaks for mobile spacing */
+@media (max-width: 767.98px) {
+  .main {
+    padding: 1rem;
+  }
+}
+/* Adaptive text for light/dark mode */
+.sidebar-text {
+  color: #ffffff; /* default dark text for light mode */
+  margin-bottom: 1.25rem; /* Add space below sidebar text */
+}
+
+/* When dark mode is active */
+body.dark-mode .sidebar-text {
+  color: #ffffff;
+}
