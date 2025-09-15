@@ -95,3 +95,8 @@ body.dark-mode .sidebar-text {
 .text-muted {
   color: var(--text-muted) !important;
 }
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
