@@ -91,3 +91,7 @@ h2 {
 body.dark-mode .sidebar-text {
   color: #ffffff;
 }
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
