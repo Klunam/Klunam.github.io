@@ -5,7 +5,6 @@
   --text-muted: #6c757d; /* muted text color */
   --body-bg: #ffffff; /* page background for light mode */
 }
-
 /* Dark mode overrides */
 body.dark-mode {
   --sidebar-bg: #0f1724; /* dark sidebar */
@@ -13,7 +12,6 @@ body.dark-mode {
   --text-muted: #cfe8ff; /* lighter muted text for dark mode */
   --body-bg: #121212; /* dark page background */
 }
-
 /* Apply variables */
 body {
   background-color: var(--body-bg);
@@ -21,7 +19,6 @@ body {
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial;
 }
-
 .sidebar {
   background-color: var(--sidebar-bg);
   color: var(--text-color);
@@ -29,32 +26,27 @@ body {
   padding: 2rem 1.25rem;
   color: #ffffff;
 }
-
 .sidebar a {
   color: var(--text-light);
   text-decoration: none;
 }
-
 .sidebar .name {
   font-weight: 700;
   font-size: 1.35rem;
   margin-top: 0.5rem;
   margin-bottom: 1rem; /* Add space below the name */
 }
-
 .resume-btn {
   background: var(--accent);
   color: #fff;
   font-weight: 600;
   border-radius: 0.4rem;
 }
-
 .main {
   padding: 2rem;
   background-color: var(--body-bg);
   color: var(--text-color);
 }
-
 h2 {
   font-size: 1.15rem;
   font-weight: 700;
@@ -63,18 +55,15 @@ h2 {
   padding-bottom: 0.35rem;
   color: var(--text-color);
 }
-
 .card-project {
   border: 1px solid #e9ecef;
   border-radius: 0.6rem;
 }
-
 /* Make sidebar sticky on larger screens */
 .sidebar-sticky {
   position: sticky;
   top: 1.5rem;
 }
-
 /* Small tweaks for mobile spacing */
 @media (max-width: 767.98px) {
   .main {
@@ -86,17 +75,74 @@ h2 {
   color: #ffffff; /* default dark text for light mode */
   margin-bottom: 1.25rem; /* Add space below sidebar text */
 }
-
 /* When dark mode is active */
 body.dark-mode .sidebar-text {
   color: #ffffff;
 }
-
 .text-muted {
   color: var(--text-muted) !important;
 }
-
 .container-fluid {
   padding-left: 0;
   padding-right: 0;
+}
+
+/* ---------- Skill bars ---------- */
+.skill-bar-track {
+  border-radius: 3px;
+  height: 4px;
+  overflow: hidden;
+}
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 6px;
+  width: 0%;
+  transition: width 1s ease;
+  background-color: #212529;
+}
+body.dark-mode .skill-bar-fill {
+  background-color: #ffffff;
+}
+.skill-row {
+  margin-bottom: 1.1rem;
+}
+.skill-row:last-child {
+  margin-bottom: 0;
+}
+.skill-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+.skill-level {
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* ---------- Scroll fade-in for sections ---------- */
+.fade-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-section.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Project cards: fade-in + hover lift ---------- */
+.card-project {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+.card-project.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.card-project:hover {
+  box-shadow: 0 10px 24px rgba(13, 110, 253, 0.12);
+  border-color: var(--accent);
+  transform: translateY(-4px);
 }
