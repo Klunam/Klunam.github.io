@@ -1,48 +1,43 @@
-// ---------- Dark mode toggle ----------
-const desktopBtn = document.getElementById("theme-toggle-desktop");
-desktopBtn.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-  desktopBtn.textContent = document.body.classList.contains("dark-mode")
-    ? "☀️ Light Mode"
-    : "🌙 Dark Mode";
-});
+document.addEventListener("DOMContentLoaded", () => {
+  // ---------- Dark mode toggle ----------
+  const desktopBtn = document.getElementById("theme-toggle-desktop");
+  const mobileBtn = document.getElementById("theme-toggle-mobile");
 
-const mobileBtn = document.getElementById("theme-toggle-mobile");
-mobileBtn.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-  mobileBtn.textContent = document.body.classList.contains("dark-mode")
-    ? "☀️"
-    : "🌙";
-});
+  function toggleTheme() {
+    const isDark = document.body.classList.toggle("dark-mode");
+    if (desktopBtn) {
+      desktopBtn.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+    }
+    if (mobileBtn) {
+      mobileBtn.textContent = isDark ? "☀️" : "🌙";
+    }
+  }
 
-// ---------- Skill bars: fill in once scrolled into view ----------
-const skillRows = document.querySelectorAll("#skills-bars .skill-row");
-const skillObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const fill = entry.target.querySelector(".skill-bar-fill");
-        fill.style.width = entry.target.dataset.percent + "%";
-        skillObserver.unobserve(entry.target);
-      }
+  if (desktopBtn) desktopBtn.addEventListener("click", toggleTheme);
+  if (mobileBtn) mobileBtn.addEventListener("click", toggleTheme);
+
+  // ---------- Skill bars: fill in once scrolled into view ----------
+  const skillRows = document.querySelectorAll("#skills-bars .skill-row");
+  const skillObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const fill = entry.target.querySelector(".skill-bar-fill");
+          if (fill) fill.style.width = entry.target.dataset.percent + "%";
+          skillObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+  skillRows.forEach((row) => skillObserver.observe(row));
+
+  // ---------- Staggered page-load reveal ----------
+  const fadeTargets = document.querySelectorAll(".fade-section, .card-project");
+  fadeTargets.forEach((el, index) => {
+    el.style.transitionDelay = `${index * 0.12}s`;
+    requestAnimationFrame(() => {
+      el.classList.add("in-view");
     });
-  },
-  { threshold: 0.3 },
-);
-skillRows.forEach((row) => skillObserver.observe(row));
-
-// ---------- Sections + project cards: fade in on scroll ----------
-// ---------- Sections + project cards: fade in on scroll ----------
-const fadeTargets = document.querySelectorAll(".fade-section, .card-project");
-const fadeObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("in-view");
-        fadeObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0 }, // Triggers immediately as soon as 1px is in view
-);
-fadeTargets.forEach((el) => fadeObserver.observe(el));
+  });
+});
