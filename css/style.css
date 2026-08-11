@@ -3,10 +3,8 @@
   --sidebar-bg: #0f1724; /* dark sidebar default */
   --text-color: #212529; /* main text color for light mode */
   --text-muted: #6c757d; /* muted text color */
-  --text-light: #ffffff; /* sidebar link color */
   --body-bg: #ffffff; /* page background for light mode */
 }
-
 /* Dark mode overrides */
 body.dark-mode {
   --sidebar-bg: #0f1724; /* dark sidebar */
@@ -14,7 +12,6 @@ body.dark-mode {
   --text-muted: #cfe8ff; /* lighter muted text for dark mode */
   --body-bg: #121212; /* dark page background */
 }
-
 /* Apply variables */
 body {
   background-color: var(--body-bg);
@@ -22,39 +19,34 @@ body {
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial;
 }
-
 .sidebar {
   background-color: var(--sidebar-bg);
-  color: #ffffff;
+  color: var(--text-color);
   min-height: 100vh;
   padding: 2rem 1.25rem;
+  color: #ffffff;
 }
-
 .sidebar a {
   color: var(--text-light);
   text-decoration: none;
 }
-
 .sidebar .name {
   font-weight: 700;
   font-size: 1.35rem;
   margin-top: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1rem; /* Add space below the name */
 }
-
 .resume-btn {
   background: var(--accent);
   color: #fff;
   font-weight: 600;
   border-radius: 0.4rem;
 }
-
 .main {
   padding: 2rem;
   background-color: var(--body-bg);
   color: var(--text-color);
 }
-
 h2 {
   font-size: 1.15rem;
   font-weight: 700;
@@ -63,38 +55,33 @@ h2 {
   padding-bottom: 0.35rem;
   color: var(--text-color);
 }
-
 .card-project {
   border: 1px solid #e9ecef;
   border-radius: 0.6rem;
 }
-
-/* Sticky sidebar on larger screens */
+/* Make sidebar sticky on larger screens */
 .sidebar-sticky {
   position: sticky;
   top: 1.5rem;
 }
-
-/* Responsive adjustments */
+/* Small tweaks for mobile spacing */
 @media (max-width: 767.98px) {
   .main {
     padding: 1rem;
   }
 }
-
+/* Adaptive text for light/dark mode */
 .sidebar-text {
-  color: #ffffff;
-  margin-bottom: 1.25rem;
+  color: #ffffff; /* default dark text for light mode */
+  margin-bottom: 1.25rem; /* Add space below sidebar text */
 }
-
+/* When dark mode is active */
 body.dark-mode .sidebar-text {
   color: #ffffff;
 }
-
 .text-muted {
   color: var(--text-muted) !important;
 }
-
 .container-fluid {
   padding-left: 0;
   padding-right: 0;
@@ -105,9 +92,7 @@ body.dark-mode .sidebar-text {
   border-radius: 3px;
   height: 4px;
   overflow: hidden;
-  background-color: #e9ecef;
 }
-
 .skill-bar-fill {
   height: 100%;
   border-radius: 6px;
@@ -115,30 +100,26 @@ body.dark-mode .sidebar-text {
   transition: width 1s ease;
   background-color: #212529;
 }
-
 body.dark-mode .skill-bar-fill {
   background-color: #ffffff;
 }
-
 .skill-row {
   margin-bottom: 1.1rem;
 }
-
 .skill-row:last-child {
   margin-bottom: 0;
 }
-
 .skill-label {
   font-size: 0.95rem;
   font-weight: 600;
   margin-bottom: 0.35rem;
 }
-
 .skill-level {
   font-weight: 400;
   color: var(--text-muted);
 }
 
+/* ---------- Scroll fade-in for sections ---------- */
 /* ---------- Scroll fade-in for sections ---------- */
 .fade-section {
   opacity: 0;
@@ -151,6 +132,15 @@ body.dark-mode .skill-bar-fill {
   transform: translateY(0);
 }
 
+/* Fallback: ensure content shows if JS is disabled or fails */
+@media (scripting: none) {
+  .fade-section,
+  .card-project {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* ---------- Project cards: fade-in + hover lift ---------- */
 .card-project {
   opacity: 0;
@@ -158,12 +148,10 @@ body.dark-mode .skill-bar-fill {
   transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.2s ease,
     border-color 0.2s ease;
 }
-
 .card-project.in-view {
   opacity: 1;
   transform: translateY(0);
 }
-
 .card-project:hover {
   box-shadow: 0 10px 24px rgba(13, 110, 253, 0.12);
   border-color: var(--accent);
