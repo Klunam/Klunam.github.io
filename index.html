@@ -19,40 +19,6 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css" />
-
-    <!-- Skill bar styles (kept here so it's easy to tweak/remove) -->
-    <style>
-      .skill-bar-track {
-        border-radius: 3px;
-        height: 4px;
-        overflow: hidden;
-      }
-      .skill-bar-fill {
-        height: 100%;
-        border-radius: 6px;
-        width: 0%;
-        transition: width 1s ease;
-        background-color: #212529;
-      }
-      body.dark-mode .skill-bar-fill {
-        background-color: #ffffff;
-      }
-      .skill-row {
-        margin-bottom: 1.1rem;
-      }
-      .skill-row:last-child {
-        margin-bottom: 0;
-      }
-      .skill-label {
-        font-size: 0.95rem;
-        font-weight: 600;
-        margin-bottom: 0.35rem;
-      }
-      .skill-level {
-        font-weight: 400;
-        color: var(--text-muted);
-      }
-    </style>
   </head>
   <body>
     <div class="container-fluid">
@@ -67,24 +33,24 @@
               CS Student • Aspiring Software Engineer
             </div>
             <div class="d-grid gap-2">
-              <a
+              
                 href="mailto:kevinmitre143@gmail.com"
                 class="btn btn-outline-light btn-sm"
                 >Email</a
               >
-              <a
+              
                 href="https://www.linkedin.com/in/kevinmitre9/"
                 target="_blank"
                 class="btn btn-outline-light btn-sm"
                 >LinkedIn</a
               >
-              <a
+              
                 href="https://github.com/Klunam"
                 target="_blank"
                 class="btn btn-outline-light btn-sm"
                 >GitHub</a
               >
-              <a
+              
                 href="resume/KEVINMITRE_Resume.pdf"
                 class="btn resume-btn btn-sm mt-2"
                 download
@@ -120,7 +86,7 @@
               </button>
               <div class="fw-bold">My Portfolio</div>
             </div>
-            <a
+            
               href="resume/KEVINMITRE_Resume.pdf"
               class="btn btn-primary btn-sm"
               download
@@ -159,24 +125,24 @@
               <div class="fw-bold">CS Student • Developer</div>
             </div>
             <div class="d-grid gap-2">
-              <a
+              
                 href="mailto:kevinmitre143@gmail.com"
                 class="btn btn-outline-secondary"
                 >Email</a
               >
-              <a
+              
                 href="https://www.linkedin.com/in/kevinmitre9/"
                 target="_blank"
                 class="btn btn-outline-secondary"
                 >LinkedIn</a
               >
-              <a
+              
                 href="https://github.com/Klunam"
                 target="_blank"
                 class="btn btn-outline-secondary"
                 >GitHub</a
               >
-              <a
+              
                 href="resume/KEVINMITRE_Resume.pdf"
                 class="btn btn-primary"
                 download
@@ -188,16 +154,16 @@
 
         <!-- Main content -->
         <main class="col-12 col-md-8 col-lg-9 main">
-          <section id="about" class="mb-4">
+          <section id="about" class="mb-4 fade-section">
             <h2>About</h2>
             <p>
-              I’m a Computer Science student at CUNY with a passion for
-              programming in <strong>C++</strong>. Outside of coding, I enjoy a
-              good coffee—especially a warm latte.
+              I'm a Computer Science student at CUNY
+              with a passion for programming in <strong>C++</strong>. Outside of
+              coding, I enjoy a good coffee—especially a warm latte.
             </p>
           </section>
 
-          <section id="education" class="mb-4">
+          <section id="education" class="mb-4 fade-section">
             <h2>Education</h2>
             <p class="mb-1">
               <strong>Lehman College</strong> - B.S in Computer Science
@@ -207,157 +173,26 @@
             </p>
           </section>
 
-          <section id="skills" class="mb-4">
+          <section id="skills" class="mb-4 fade-section">
             <h2>Skills</h2>
             <div id="skills-bars">
               <div class="skill-row" data-percent="85">
-                <div class="skill-label">
-                  C / C++ <span class="skill-level">— 1 year</span>
-                </div>
-                <div class="skill-bar-track">
-                  <div class="skill-bar-fill"></div>
-                </div>
+                <div class="skill-label">C / C++ <span class="skill-level">— 1 year</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
               </div>
               <div class="skill-row" data-percent="85">
-                <div class="skill-label">
-                  Python <span class="skill-level">— 1 year</span>
-                </div>
-                <div class="skill-bar-track">
-                  <div class="skill-bar-fill"></div>
-                </div>
+                <div class="skill-label">Python <span class="skill-level">— 1 year</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
               </div>
               <div class="skill-row" data-percent="25">
-                <div class="skill-label">
-                  MySQL <span class="skill-level">— 3 months</span>
-                </div>
-                <div class="skill-bar-track">
-                  <div class="skill-bar-fill"></div>
-                </div>
+                <div class="skill-label">MySQL <span class="skill-level">— 3 months</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
               </div>
               <div class="skill-row" data-percent="20">
-                <div class="skill-label">
-                  Go <span class="skill-level">— Beginner</span>
-                </div>
-                <div class="skill-bar-track">
-                  <div class="skill-bar-fill"></div>
-                </div>
+                <div class="skill-label">Go <span class="skill-level">— Beginner</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
               </div>
             </div>
           </section>
 
-          <section id="experience" class="mb-4">
-            <h2>Experience</h2>
-            <div class="mb-3">
-              <div class="d-flex justify-content-between">
-                <div>
-                  <strong>Software Engineer Intern</strong> — NYC DSS /
-                  Department of Finance
-                </div>
-                <small class="text-active">3 months</small>
-              </div>
-              <ul>
-                <li>
-                  Modernized UI with <strong>Bootstrap v5.3</strong>, improving
-                  usability and user experience.
-                </li>
-                <li>
-                  Worked with
-                  <strong>C#, ASP.NET MVC, Blazor, and SQL Server</strong> to
-                  build and test features.
-                </li>
-                <li>
-                  Collaborated with engineers and presented technical updates to
-                  management.
-                </li>
-              </ul>
-            </div>
-          </section>
-
-          <section id="projects" class="mb-4">
-            <h2>Projects</h2>
-            <div class="row g-3">
-              <div class="col-sm-6">
-                <div class="p-3 card-project h-100">
-                  <h5 class="mb-1">DeFi App</h5>
-                  <small class="text-muted">Typescript • Solidity</small>
-                  <p class="mb-1 mt-2">
-                    Smart-Contract that allows users to participate, win, review
-                    lottery history.
-                  </p>
-                  <a
-                    href="https://github.com/Klunam/Lottery_EthOnline"
-                    target="_blank"
-                    >View on GitHub</a
-                  >
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="p-3 card-project h-100">
-                  <h5 class="mb-1">Stock Price CLI Tool</h5>
-                  <small class="text-muted">C++ • Python</small>
-                  <p class="mb-1 mt-2">
-                    User enters ticker → fetch current price (via Python
-                    yfinance or API)/
-                    <strong>(Coming Soon)</strong>
-                  </p>
-                  <a href="https://github.com/Klunam" target="_blank"
-                    >View on GitHub</a
-                  >
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="contact" class="mb-4">
-            <h2>Contact</h2>
-            <p>
-              Prefer email:
-              <a href="mailto:kevin.mitre4@gmail.com">kevin.mitre4@gmail.com</a>
-              ❖
-              <a href="https://www.linkedin.com/in/kevinmitre9/" target="_blank"
-                >LinkedIn</a
-              >
-            </p>
-          </section>
-        </main>
-      </div>
-    </div>
-
-    <!-- Bootstrap JS bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // Dark Mode Toggle Logic
-        const desktopBtn = document.getElementById("theme-toggle-desktop");
-        const mobileBtn = document.getElementById("theme-toggle-mobile");
-
-        function toggleTheme() {
-          const isDark = document.body.classList.toggle("dark-mode");
-          if (desktopBtn)
-            desktopBtn.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
-          if (mobileBtn) mobileBtn.textContent = isDark ? "☀️" : "🌙";
-        }
-
-        if (desktopBtn) desktopBtn.addEventListener("click", toggleTheme);
-        if (mobileBtn) mobileBtn.addEventListener("click", toggleTheme);
-
-        // Animate skill bars once they scroll into view
-        const skillRows = document.querySelectorAll("#skills-bars .skill-row");
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                const fill = entry.target.querySelector(".skill-bar-fill");
-                fill.style.width = entry.target.dataset.percent + "%";
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.3 },
-        );
-        skillRows.forEach((row) => observer.observe(row));
-      });
-    </script>
-  </body>
-</html>
+          <section
