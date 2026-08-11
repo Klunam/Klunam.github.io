@@ -1,25 +1,25 @@
-
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Kevin Mitre — CS Student</title>
- 
+
     <!-- Google Font: Inter -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
- 
+
     <!-- Bootstrap CSS (CDN) -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
- 
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css" />
- 
+
     <!-- Skill bar styles (kept here so it's easy to tweak/remove) -->
     <style>
       .skill-bar-track {
@@ -67,24 +67,24 @@
               CS Student • Aspiring Software Engineer
             </div>
             <div class="d-grid gap-2">
-              <a
+              
                 href="mailto:kevinmitre143@gmail.com"
                 class="btn btn-outline-light btn-sm"
                 >Email</a
               >
-              <a
+              
                 href="https://www.linkedin.com/in/kevinmitre9/"
                 target="_blank"
                 class="btn btn-outline-light btn-sm"
                 >LinkedIn</a
               >
-              <a
+              
                 href="https://github.com/Klunam"
                 target="_blank"
                 class="btn btn-outline-light btn-sm"
                 >GitHub</a
               >
-              <a
+              
                 href="resume/KEVINMITRE_Resume.pdf"
                 class="btn resume-btn btn-sm mt-2"
                 download
@@ -101,7 +101,7 @@
             </div>
           </div>
         </aside>
- 
+
         <!-- Mobile top bar with offcanvas toggle -->
         <div class="d-md-none w-100 bg-white py-2 shadow-sm">
           <div
@@ -120,14 +120,14 @@
               </button>
               <div class="fw-bold">My Portfolio</div>
             </div>
-            <a
+            
               href="resume/KEVINMITRE_Resume.pdf"
               class="btn btn-primary btn-sm"
               download
             >
               Resume
             </a>
- 
+
             <!-- Dark/Light toggle button -->
             <button
               id="theme-toggle-mobile"
@@ -137,7 +137,7 @@
             </button>
           </div>
         </div>
- 
+
         <!-- Offcanvas mobile menu -->
         <div
           class="offcanvas offcanvas-start"
@@ -159,24 +159,24 @@
               <div class="fw-bold">CS Student • Developer</div>
             </div>
             <div class="d-grid gap-2">
-              <a
+              
                 href="mailto:kevinmitre143@gmail.com"
                 class="btn btn-outline-secondary"
                 >Email</a
               >
-              <a
+              
                 href="https://www.linkedin.com/in/kevinmitre9/"
                 target="_blank"
                 class="btn btn-outline-secondary"
                 >LinkedIn</a
               >
-              <a
+              
                 href="https://github.com/Klunam"
                 target="_blank"
                 class="btn btn-outline-secondary"
                 >GitHub</a
               >
-              <a
+              
                 href="resume/KEVINMITRE_Resume.pdf"
                 class="btn btn-primary"
                 download
@@ -185,7 +185,7 @@
             </div>
           </div>
         </div>
- 
+
         <!-- Main content -->
         <main class="col-12 col-md-8 col-lg-9 main">
           <section id="about" class="mb-4">
@@ -196,7 +196,7 @@
               coding, I enjoy a good coffee—especially a warm latte.
             </p>
           </section>
- 
+
           <section id="education" class="mb-4">
             <h2>Education</h2>
             <p class="mb-1">
@@ -206,7 +206,7 @@
               <strong>CUNY Bronx Community College</strong> — A.S
             </p>
           </section>
- 
+
           <section id="skills" class="mb-4">
             <h2>Skills</h2>
             <div id="skills-bars">
@@ -228,7 +228,7 @@
               </div>
             </div>
           </section>
- 
+
           <section id="experience" class="mb-4">
             <h2>Experience</h2>
             <div class="mb-3">
@@ -256,7 +256,7 @@
               </ul>
             </div>
           </section>
- 
+
           <section id="projects" class="mb-4">
             <h2>Projects</h2>
             <div class="row g-3">
@@ -268,7 +268,7 @@
                     Smart-Contract that allows users to participate, win, review
                     lottery history.
                   </p>
-                  <a
+                  
                     href="https://github.com/Klunam/Lottery_EthOnline"
                     target="_blank"
                     >View on GitHub</a
@@ -291,7 +291,7 @@
               </div>
             </div>
           </section>
- 
+
           <section id="contact" class="mb-4">
             <h2>Contact</h2>
             <p>
@@ -306,80 +306,31 @@
         </main>
       </div>
     </div>
- 
+
     <!-- Bootstrap JS bundle -->
- 
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
       defer
     ></script>
-    <!-- React (via CDN, no build step needed) -->
-    <script
-      src="https://unpkg.com/react@18/umd/react.production.min.js"
-      crossorigin
-    ></script>
-    <script
-      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
-      crossorigin
-    ></script>
-    <script
-      src="https://unpkg.com/@babel/standalone/babel.min.js"
-    ></script>
- 
-    <script type="text/babel">
-      const { useState, useEffect } = React;
- 
-      // Tiny shared store so the desktop + mobile buttons
-      // (rendered as two separate React roots) stay in sync.
-      const themeStore = {
-        darkMode: false,
-        listeners: new Set(),
-        subscribe(fn) {
-          this.listeners.add(fn);
-          return () => this.listeners.delete(fn);
-        },
-        toggle() {
-          this.darkMode = !this.darkMode;
-          document.body.classList.toggle("dark-mode", this.darkMode);
-          this.listeners.forEach((fn) => fn(this.darkMode));
-        },
-      };
- 
-      function ThemeToggle({ variant }) {
-        const [darkMode, setDarkMode] = useState(themeStore.darkMode);
- 
-        useEffect(() => {
-          return themeStore.subscribe(setDarkMode);
-        }, []);
- 
-        if (variant === "desktop") {
-          return (
-            <button
-              className="btn btn-outline-light btn-sm w-100"
-              onClick={() => themeStore.toggle()}
-            >
-              {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
-            </button>
-          );
-        }
- 
-        return (
-          <button
-            className="btn btn-outline-secondary btn-sm"
-            onClick={() => themeStore.toggle()}
-          >
-            {darkMode ? "☀️" : "🌙"}
-          </button>
-        );
-      }
- 
-      ReactDOM.createRoot(
-        document.getElementById("theme-toggle-desktop-root")
-      ).render(<ThemeToggle variant="desktop" />);
- 
-      ReactDOM.createRoot(
-        document.getElementById("theme-toggle-mobile-root")
-      ).render(<ThemeToggle variant="mobile" />);
+    <script>
+      // Desktop toggle
+      const desktopBtn = document.getElementById("theme-toggle-desktop");
+      desktopBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        desktopBtn.textContent = document.body.classList.contains("dark-mode")
+          ? "☀️ Light Mode"
+          : "🌙 Dark Mode";
+      });
+
+      // Mobile toggle
+      const mobileBtn = document.getElementById("theme-toggle-mobile");
+      mobileBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        mobileBtn.textContent = document.body.classList.contains("dark-mode")
+          ? "☀️"
+          : "🌙";
+      });
     </script>
     <script>
       // Animate skill bars once they scroll into view
@@ -400,4 +351,3 @@
     </script>
   </body>
 </html>
- 
