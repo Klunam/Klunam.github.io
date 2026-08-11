@@ -1,296 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Kevin Mitre — CS Student</title>
+// ---------- Dark mode toggle ----------
+const desktopBtn = document.getElementById("theme-toggle-desktop");
+desktopBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  desktopBtn.textContent = document.body.classList.contains("dark-mode")
+    ? "☀️ Light Mode"
+    : "🌙 Dark Mode";
+});
 
-    <!-- Google Font: Inter -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
+const mobileBtn = document.getElementById("theme-toggle-mobile");
+mobileBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  mobileBtn.textContent = document.body.classList.contains("dark-mode")
+    ? "☀️"
+    : "🌙";
+});
 
-    <!-- Bootstrap CSS (CDN) -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+// ---------- Skill bars: fill in once scrolled into view ----------
+const skillRows = document.querySelectorAll("#skills-bars .skill-row");
+const skillObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const fill = entry.target.querySelector(".skill-bar-fill");
+        fill.style.width = entry.target.dataset.percent + "%";
+        skillObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.3 },
+);
+skillRows.forEach((row) => skillObserver.observe(row));
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <div class="container-fluid">
-      <div class="row g-0">
-        <!-- Desktop Sidebar -->
-        <aside
-          class="col-md-4 col-lg-3 d-none d-md-flex sidebar align-items-center"
-        >
-          <div class="sidebar-sticky w-100 text-center">
-            <div class="name">Kevin Mitre</div>
-            <div class="sidebar-text gap-2">
-              CS Student • Aspiring Software Engineer
-            </div>
-            <div class="d-grid gap-2">
-              <a
-                href="mailto:kevinmitre143@gmail.com"
-                class="btn btn-outline-light btn-sm"
-                >Email</a
-              >
-              <a
-                href="https://www.linkedin.com/in/kevinmitre9/"
-                target="_blank"
-                class="btn btn-outline-light btn-sm"
-                >LinkedIn</a
-              >
-              <a
-                href="https://github.com/Klunam"
-                target="_blank"
-                class="btn btn-outline-light btn-sm"
-                >GitHub</a
-              >
-              <a
-                href="resume/KEVINMITRE_Resume.pdf"
-                class="btn resume-btn btn-sm mt-2"
-                download
-                >Download Resume</a
-              >
-              <div class="mt-4">
-                <button
-                  id="theme-toggle-desktop"
-                  class="btn btn-outline-light btn-sm w-100"
-                >
-                  🌙 Dark Mode
-                </button>
-              </div>
-            </div>
-          </div>
-        </aside>
-
-        <!-- Mobile top bar with offcanvas toggle -->
-        <div class="d-md-none w-100 bg-white py-2 shadow-sm">
-          <div
-            class="container d-flex align-items-center justify-content-between"
-          >
-            <div class="d-flex align-items-center gap-2">
-              <button
-                class="btn btn-outline-secondary btn-sm"
-                type="button"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#mobileMenu"
-                aria-controls="mobileMenu"
-                aria-label="Open menu"
-              >
-                ☰
-              </button>
-              <div class="fw-bold">My Portfolio</div>
-            </div>
-            <a
-              href="resume/KEVINMITRE_Resume.pdf"
-              class="btn btn-primary btn-sm"
-              download
-            >
-              Resume
-            </a>
-
-            <!-- Dark/Light toggle button -->
-            <button
-              id="theme-toggle-mobile"
-              class="btn btn-outline-secondary btn-sm"
-            >
-              🌙
-            </button>
-          </div>
-        </div>
-
-        <!-- Offcanvas mobile menu -->
-        <div
-          class="offcanvas offcanvas-start"
-          tabindex="-1"
-          id="mobileMenu"
-          aria-labelledby="mobileMenuLabel"
-        >
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="mobileMenuLabel">Menu</h5>
-            <button
-              type="button"
-              class="btn-close text-reset"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="offcanvas-body">
-            <div class="text-center mb-3">
-              <div class="fw-bold">CS Student • Developer</div>
-            </div>
-            <div class="d-grid gap-2">
-              <a
-                href="mailto:kevinmitre143@gmail.com"
-                class="btn btn-outline-secondary"
-                >Email</a
-              >
-              <a
-                href="https://www.linkedin.com/in/kevinmitre9/"
-                target="_blank"
-                class="btn btn-outline-secondary"
-                >LinkedIn</a
-              >
-              <a
-                href="https://github.com/Klunam"
-                target="_blank"
-                class="btn btn-outline-secondary"
-                >GitHub</a
-              >
-              <a
-                href="resume/KEVINMITRE_Resume.pdf"
-                class="btn btn-primary"
-                download
-                >Download Resume</a
-              >
-            </div>
-          </div>
-        </div>
-
-        <!-- Main content -->
-        <main class="col-12 col-md-8 col-lg-9 main">
-          <section id="about" class="mb-4 fade-section">
-            <h2>About</h2>
-            <p>
-              I'm a Computer Science student at CUNY with a passion for
-              programming in <strong>C++</strong>. Outside of coding, I enjoy a
-              good coffee—especially a warm latte.
-            </p>
-          </section>
-
-          <section id="education" class="mb-4 fade-section">
-            <h2>Education</h2>
-            <p class="mb-1">
-              <strong>Lehman College</strong> - B.S in Computer Science
-            </p>
-            <p class="mb-0">
-              <strong>CUNY Bronx Community College</strong> — A.S
-            </p>
-          </section>
-
-          <section id="skills" class="mb-4 fade-section">
-            <h2>Skills</h2>
-            <div id="skills-bars">
-              <div class="skill-row" data-percent="85">
-                <div class="skill-label">
-                  C / C++ <span class="skill-level">— 1 year</span>
-                </div>
-                <div class="skill-bar-track">
-                  <div class="skill-bar-fill"></div>
-                </div>
-              </div>
-              <div class="skill-row" data-percent="85">
-                <div class="skill-label">
-                  Python <span class="skill-level">— 1 year</span>
-                </div>
-                <div class="skill-bar-track">
-                  <div class="skill-bar-fill"></div>
-                </div>
-              </div>
-              <div class="skill-row" data-percent="25">
-                <div class="skill-label">
-                  MySQL <span class="skill-level">— 3 months</span>
-                </div>
-                <div class="skill-bar-track">
-                  <div class="skill-bar-fill"></div>
-                </div>
-              </div>
-              <div class="skill-row" data-percent="20">
-                <div class="skill-label">
-                  Go <span class="skill-level">— Beginner</span>
-                </div>
-                <div class="skill-bar-track">
-                  <div class="skill-bar-fill"></div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="experience" class="mb-4 fade-section">
-            <h2>Experience</h2>
-            <div class="mb-3">
-              <div class="d-flex justify-content-between">
-                <div>
-                  <strong>Software Engineer Intern</strong> — NYC DSS /
-                  Department of Finance
-                </div>
-                <small class="text-active">3 months</small>
-              </div>
-              <ul>
-                <li>
-                  Modernized UI with <strong>Bootstrap v5.3</strong>, improving
-                  usability and user experience.
-                </li>
-                <li>
-                  Worked with
-                  <strong>C#, ASP.NET MVC, Blazor, and SQL Server</strong> to
-                  build and test features.
-                </li>
-                <li>
-                  Collaborated with engineers and presented technical updates to
-                  management.
-                </li>
-              </ul>
-            </div>
-          </section>
-
-          <section id="projects" class="mb-4 fade-section">
-            <h2>Projects</h2>
-            <div class="row g-3">
-              <div class="col-sm-6">
-                <div class="p-3 card-project h-100">
-                  <h5 class="mb-1">DeFi App</h5>
-                  <small class="text-muted">Typescript • Solidity</small>
-                  <p class="mb-1 mt-2">
-                    Smart-Contract that allows users to participate, win, review
-                    lottery history.
-                  </p>
-                  <a
-                    href="https://github.com/Klunam/Lottery_EthOnline"
-                    target="_blank"
-                    >View on GitHub</a
-                  >
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="p-3 card-project h-100">
-                  <h5 class="mb-1">Stock Price CLI Tool</h5>
-                  <small class="text-muted">C++ • Python</small>
-                  <p class="mb-1 mt-2">
-                    User enters ticker → fetch current price (via Python
-                    yfinance or API) <strong>(Coming Soon)</strong>
-                  </p>
-                  <a href="https://github.com/Klunam" target="_blank"
-                    >View on GitHub</a
-                  >
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="contact" class="mb-4 fade-section">
-            <h2>Contact</h2>
-            <p>
-              Prefer email:
-              <a href="mailto:kevin.mitre4@gmail.com">kevin.mitre4@gmail.com</a>
-              ❖
-              <a href="https://www.linkedin.com/in/kevinmitre9/" target="_blank"
-                >LinkedIn</a
-              >
-            </p>
-          </section>
-        </main>
-      </div>
-    </div>
-
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom Script -->
-    <script src="js/script.js"></script>
-  </body>
-</html>
+// ---------- Sections + project cards: fade in on scroll ----------
+// ---------- Sections + project cards: fade in on scroll ----------
+const fadeTargets = document.querySelectorAll(".fade-section, .card-project");
+const fadeObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0 }, // Triggers immediately as soon as 1px is in view
+);
+fadeTargets.forEach((el) => fadeObserver.observe(el));
