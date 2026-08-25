@@ -23,52 +23,97 @@
   <body>
     <div class="container-fluid">
       <div class="row g-0">
-        <!-- Desktop Sidebar -->
+        <!------------------- Desktop Sidebar ----------------------->
         <aside
           class="col-md-4 col-lg-3 d-none d-md-flex sidebar align-items-center"
         >
-          <div class="sidebar-sticky w-100 text-center">
+          <div class="sidebar-sticky w-100">
+            <div class="avatar-circle">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <path
+                  d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 6l-2 12"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
             <div class="name">Kevin Mitre</div>
-            <div class="sidebar-text gap-2">
+            <div class="sidebar-text">
               CS Student • Aspiring Software Engineer
             </div>
-            <div class="d-grid gap-2">
-              <a
-                href="mailto:kevinmitre143@gmail.com"
-                class="btn btn-outline-light btn-sm"
-                >Email</a
-              >
-              <a
-                href="https://www.linkedin.com/in/kevinmitre9/"
-                target="_blank"
-                class="btn btn-outline-light btn-sm"
-                >LinkedIn</a
-              >
+
+            <div class="sidebar-links">
               <a
                 href="https://github.com/Klunam"
                 target="_blank"
-                class="btn btn-outline-light btn-sm"
-                >GitHub</a
+                class="link-hover"
               >
-              <a
-                href="resume/KEVINMITRE_Resume.pdf"
-                class="btn resume-btn btn-sm mt-2"
-                download
-                >Download Resume</a
-              >
-              <div class="mt-4">
-                <button
-                  id="theme-toggle-desktop"
-                  class="btn btn-outline-light btn-sm w-100"
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2.15c-3.17.69-3.83-1.4-3.83-1.4-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.74 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.53-.29-5.2-1.27-5.2-5.63 0-1.24.44-2.26 1.17-3.05-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.16a10.9 10.9 0 0 1 5.72 0c2.18-1.47 3.14-1.16 3.14-1.16.62 1.57.23 2.73.11 3.02.73.79 1.17 1.81 1.17 3.05 0 4.37-2.68 5.34-5.23 5.62.41.36.78 1.06.78 2.14v3.17c0 .3.21.66.79.55A11.53 11.53 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"
+                  />
+                </svg>
+                GitHub
+                <svg
+                  class="link-arrow"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
                 >
-                  🌙 Dark Mode
-                </button>
-              </div>
+                  <path d="M7 17L17 7M17 7H8M17 7V16" />
+                </svg>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/kevinmitre9/"
+                target="_blank"
+                class="link-hover"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"
+                  />
+                </svg>
+                LinkedIn
+                <svg
+                  class="link-arrow"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M7 17L17 7M17 7H8M17 7V16" />
+                </svg>
+              </a>
+              <a href="mailto:kevinmitre143@gmail.com" class="link-hover">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <path d="M3 5h18v14H3V5Zm0 0l9 7 9-7" />
+                </svg>
+                Email
+              </a>
             </div>
+
+            <a href="resume/KEVINMITRE_Resume.pdf" class="resume-btn" download>
+              Download Resume
+            </a>
+
+            <button id="theme-toggle-desktop" class="theme-toggle-btn w-100">
+              🌙 Dark Mode
+            </button>
           </div>
         </aside>
 
-        <!-- Mobile top bar with offcanvas toggle -->
+        <!---------------- Mobile top bar with offcanvas toggle ------------------------>
         <div class="d-md-none w-100 bg-white py-2 shadow-sm">
           <div
             class="container d-flex align-items-center justify-content-between"
@@ -121,34 +166,75 @@
             ></button>
           </div>
           <div class="offcanvas-body">
-            <div class="text-center mb-3">
-              <div class="fw-bold">CS Student • Developer</div>
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <div class="logo-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <path
+                    d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 6l-2 12"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div>
+                <div class="fw-bold" style="font-size: 0.95rem">
+                  Kevin Mitre
+                </div>
+                <div class="text-muted" style="font-size: 0.8rem">
+                  CS Student • Developer
+                </div>
+              </div>
             </div>
-            <div class="d-grid gap-2">
-              <a
-                href="mailto:kevinmitre143@gmail.com"
-                class="btn btn-outline-secondary"
-                >Email</a
-              >
-              <a
-                href="https://www.linkedin.com/in/kevinmitre9/"
-                target="_blank"
-                class="btn btn-outline-secondary"
-                >LinkedIn</a
-              >
+
+            <div class="offcanvas-links mb-3">
               <a
                 href="https://github.com/Klunam"
                 target="_blank"
-                class="btn btn-outline-secondary"
-                >GitHub</a
+                class="link-hover link-hover-light"
               >
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2.15c-3.17.69-3.83-1.4-3.83-1.4-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.74 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.53-.29-5.2-1.27-5.2-5.63 0-1.24.44-2.26 1.17-3.05-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.16a10.9 10.9 0 0 1 5.72 0c2.18-1.47 3.14-1.16 3.14-1.16.62 1.57.23 2.73.11 3.02.73.79 1.17 1.81 1.17 3.05 0 4.37-2.68 5.34-5.23 5.62.41.36.78 1.06.78 2.14v3.17c0 .3.21.66.79.55A11.53 11.53 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"
+                  />
+                </svg>
+                GitHub
+              </a>
               <a
-                href="resume/KEVINMITRE_Resume.pdf"
-                class="btn btn-primary"
-                download
-                >Download Resume</a
+                href="https://www.linkedin.com/in/kevinmitre9/"
+                target="_blank"
+                class="link-hover link-hover-light"
               >
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"
+                  />
+                </svg>
+                LinkedIn
+              </a>
+              <a
+                href="mailto:kevinmitre143@gmail.com"
+                class="link-hover link-hover-light"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <path d="M3 5h18v14H3V5Zm0 0l9 7 9-7" />
+                </svg>
+                Email
+              </a>
             </div>
+
+            <a href="resume/KEVINMITRE_Resume.pdf" class="resume-btn" download
+              >Download Resume</a
+            >
           </div>
         </div>
 
@@ -157,13 +243,12 @@
           <section id="about" class="mb-4 fade-section">
             <h2>About</h2>
             <p>
-              Hi there! I'm Kevin. I'm a undergraduate Computer Science student
-              with driven curiosity in <strong>C++</strong>, and how software
-              interacts with hardware. When I'm not in classes, I'm in pursuit
-              of low-level systems and learning how to make software robust and
-              futher enhance my skills througth projects or school events. I've
-              also done a software engineering internship for a NYC
-              agency(DCAS).
+              Hi there! I'm Kevin. I'm an undergraduate Computer Science student
+              with a strong curiosity about <strong>C++</strong> and how
+              software interacts with hardware. When I'm not in class, I explore
+              low-level systems, focus on building robust software, and sharpen
+              my skills through projects and school events. I've also completed
+              a software engineering internship for a NYC agency (DCAS).
             </p>
           </section>
 
@@ -218,22 +303,30 @@
           <section id="experience" class="mb-5 fade-section">
             <h2>Experience</h2>
             <div class="card-project p-4">
-              <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center mb-1">
+              <div
+                class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center mb-1"
+              >
                 <h5 class="mb-0 fw-bold">NYC DSS / Department of Finance</h5>
                 <small class="text-muted">3 months</small>
               </div>
               <div class="text-muted fst-italic mb-3">
-                Software Engineer Intern <span class="d-none d-sm-inline">•</span> New York, NY
+                Software Engineer Intern
+                <span class="d-none d-sm-inline">•</span> New York, NY
               </div>
               <ul class="mb-0 ps-3">
                 <li class="mb-2">
-                  Modernized core web interfaces using <strong>Bootstrap v5.3</strong>, optimizing responsive performance and layout consistency across devices.
+                  Modernized core web interfaces using
+                  <strong>Bootstrap v5.3</strong>, optimizing responsive
+                  performance and layout consistency across devices.
                 </li>
                 <li class="mb-2">
-                  Developed and tested features using <strong>C#, ASP.NET MVC, Blazor, and SQL Server</strong> to support internal agency workflows.
+                  Developed and tested features using
+                  <strong>C#, ASP.NET MVC, Blazor, and SQL Server</strong> to
+                  support internal agency workflows.
                 </li>
                 <li>
-                  Collaborated closely with senior engineers in an Agile environment and presented technical progress to management.
+                  Collaborated closely with senior engineers in an Agile
+                  environment and presented technical progress to management.
                 </li>
               </ul>
             </div>
