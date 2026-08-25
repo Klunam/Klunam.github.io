@@ -100,8 +100,9 @@ body.dark-mode .sidebar-text {
   transition: width 1s ease;
   background-color: #212529;
 }
-body.dark-mode .skill-bar-fill {
-  background-color: #ffffff;
+body.dark-mode .card-project {
+  border-color: #2b3035;
+  background-color: #1a1a1a;
 }
 .skill-row {
   margin-bottom: 1.1rem;
@@ -156,4 +157,14 @@ body.dark-mode .skill-bar-fill {
   box-shadow: 0 10px 24px rgba(13, 110, 253, 0.12);
   border-color: var(--accent);
   transform: translateY(-4px);
+}
+
+/* Card Link Styling */
+.card-project a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.card-project a:hover {
+  text-decoration: underline;
 }
