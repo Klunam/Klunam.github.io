@@ -64,9 +64,9 @@ body.dark-mode .sidebar-text {
 h2 {
   font-size: 1.15rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1.5rem; /* Increased from 0.75rem for more breathing room */
   border-bottom: 1px solid #e9ecef;
-  padding-bottom: 0.35rem;
+  padding-bottom: 0.5rem;
   color: var(--text-color);
 }
 
